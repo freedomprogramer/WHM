@@ -29,6 +29,10 @@ class ServersController < ApplicationController
 
   def destroy
     @server = Object.const_get( params[:server_type].camelcase ).find(params[:id])
-    redirect_to servers_path, notice: "删除服务器成功" if @server.destroy
+    if @server.destroy
+      redirect_to servers_path, notice: "删除服务器成功"
+    else
+      redirect_to servers_path, notice: "删除服务器失败"
+    end
   end
 end

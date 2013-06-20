@@ -1,5 +1,7 @@
 WHM::Application.routes.draw do
 
+  resources :sftp_users
+
   resources :servers, except: [:show, :edit, :update]
 
   root :to => 'servers#index'

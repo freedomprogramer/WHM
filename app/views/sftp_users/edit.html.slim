@@ -1,0 +1,8 @@
+.page-header
+  h1 编辑 SFTP 用户
+
+= form_for @sftp_user do |f|
+  = f.label "用户名"
+  = f.text_field :username
+  
+  = f.submit "保存"

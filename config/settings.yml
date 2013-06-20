@@ -1,4 +1,7 @@
 defaults: &defaults
+  sftp:
+    chroot: /var/www
+
   servers:
     nginx_server: Nginx 服务器
     dns_server: Dns 服务器

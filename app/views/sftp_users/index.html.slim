@@ -1,0 +1,24 @@
+.page-header
+  h1 SFTP 用户
+table class="table table-striped"
+  thead
+    tr
+      th 用户名
+      th 用户目录
+      th 服务器
+      th 密码
+      th 确认密码
+      th 操作
+  tbody
+    - @sftp_users.each do |sftp_user|
+      tr
+        td= sftp_user.username
+        td= sftp_user.home
+        td= sftp_user.nginx_server.domain_name
+        td= sftp_user.password
+        td= sftp_user.password_confirmation
+        td
+          = link_to "编辑", edit_sftp_user_path(sftp_user), :class => 'btn btn-mini'
+          = link_to "删除", sftp_user_path(sftp_user), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
+
+= link_to "新建", new_sftp_user_path, :class => 'btn btn-primary'
