@@ -1,1 +1,24 @@
-= link_to "新建服务器", new_server_path, :class => 'btn btn-primary'
+.page-header
+  h1 服务器
+table class="table table-striped"
+  thead
+    tr
+      th 域名
+      th IP
+      th 类型
+      th 状态
+      th 操作
+  tbody
+    - @servers.each do |server|
+      tr
+        td= server.domain_name
+        td= server.ip
+        td= Settings.servers[ server.server_type ]
+        td= server.state
+        td
+          = link_to "删除", server_path(server, server_type: server.server_type), :method => :delete, :confirm => "你确定要删除？", :class => 'btn btn-mini btn-danger'
+
+= form_tag new_server_path, method: 'get' do
+  span 请选择服务器类型：
+  = select "server", "type", @server_types.map{ |text, value| [value, text] }, {:prompt => '请选择...'}
+  = submit_tag "新建服务器", :class => 'btn btn-primary'

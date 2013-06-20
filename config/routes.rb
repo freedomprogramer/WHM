@@ -1,6 +1,6 @@
 WHM::Application.routes.draw do
 
-  resources :servers
+  resources :servers, except: [:show, :edit, :update]
 
   root :to => 'servers#index'
   # The priority is based upon order of creation:

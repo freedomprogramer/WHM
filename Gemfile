@@ -2,9 +2,11 @@ source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.13'
 gem 'jquery-rails'
-
 gem 'mongoid'
 gem "slim-rails"
+gem 'ipaddress'
+gem 'settingslogic'
+gem 'state_machine'
 
 group :assets do
   gem 'therubyracer', :platforms => :ruby
