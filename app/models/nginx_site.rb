@@ -16,12 +16,12 @@ class NginxSite
   # Callback
   execute_puppet_after_save do
     add_nginx_site sftp_user.nginx_server.domain_name,
-    'site_directory' => site_root_directory
+    'site_directory' => site_root_directory, 'site_domain' => dns_record.domain_full_name
   end
 
   execute_puppet_before_destroy do
     del_nginx_site sftp_user.nginx_server.domain_name,
-    'site_directory' => site_root_directory
+    'site_directory' => site_root_directory, 'site_domain' => dns_record.domain_full_name
   end
 
   def site_root_directory
