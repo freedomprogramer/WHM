@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class NginxSitesController < ApplicationController
   def index
     @nginx_sites = NginxSite.all

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ServersController < ApplicationController
   def index
     @server_types = Settings.servers.types

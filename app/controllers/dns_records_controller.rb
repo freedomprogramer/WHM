@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class DnsRecordsController < ApplicationController
   def index
     @dns_records = DnsRecord.all
