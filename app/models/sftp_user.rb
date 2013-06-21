@@ -3,6 +3,7 @@ class SftpUser
   include Concerns::User
   include Concerns::Association
   include Concerns::Restriction
+  include Concerns::Puppet
 
   field :home
 
@@ -15,6 +16,15 @@ class SftpUser
 
   # Callbacks
   before_validation :generate_home
+
+  # Callback
+  execute_puppet_after_save do
+    add_sftp_user nginx_server.domain_name
+  end
+
+  execute_puppet_before_destroy do
+    del_sftp_user nginx_server.domain_name
+  end
 
   def generate_home
     self.home ||=  File.join( Settings.sftp.chroot, username )

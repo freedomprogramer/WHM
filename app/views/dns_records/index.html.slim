@@ -12,7 +12,7 @@ table class="table table-striped"
   tbody
     - @dns_records.each do |dns_record|
       tr
-        td= dns_record.domain_name
+        td= dns_record.domain_full_name
         td= dns_record.ip_address
         td= dns_record.type
         td= dns_record.dns_server.domain_name

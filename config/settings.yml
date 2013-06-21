@@ -5,7 +5,7 @@ defaults: &defaults
     hiera_templates: <%= Rails.root %>/config/puppet/hiera_templates
 
   sftp:
-    chroot: /var/www
+    chroot: /root/www
 
   servers:
     types:

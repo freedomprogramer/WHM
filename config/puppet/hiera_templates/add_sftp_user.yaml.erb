@@ -1,0 +1,23 @@
+---
+classes:
+  - ssh::install
+  - ssh::sftp::config 
+  - ssh::add_user
+
+### Configure ssh::install
+# ssh::install::package: openssh-server
+
+### Configure ssh::sftp::config
+ssh::sftp::config:
+  group: www-data
+  sshd_config_path: /etc/ssh/sshd_config
+  chroot_directory: /root/www/%u
+
+###! note: The ssh:add_user class and the ssh::del_user class cannot be used at the same time when they have the same username 
+### Configure ssh::add_user
+ssh::add_user:
+  username: <%= params['username'] %>
+  password: <%= params['password'] %>
+  groups: www-data
+  home_directory: <%= params['home'] %>
+  shell: /usr/sbin/nologin
