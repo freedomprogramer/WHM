@@ -3,8 +3,12 @@ defaults: &defaults
     chroot: /var/www
 
   servers:
-    nginx_server: Nginx 服务器
-    dns_server: Dns 服务器
+    types:
+      nginx_server: Nginx 服务器
+      dns_server: Dns 服务器
+
+  dns:
+    types: [A, CNAME, MX]
 
 development:
   <<: *defaults

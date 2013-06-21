@@ -1,0 +1,21 @@
+.page-header
+  h1 DNS 信息
+table class="table table-striped"
+  thead
+    tr
+      th 域名
+      th IP 地址
+      th 类型
+      td 服务器
+      th 操作
+  tbody
+    - @dns_records.each do |dns_record|
+      tr
+        td= dns_record.domain_name
+        td= dns_record.ip_address
+        td= dns_record.type
+        td= dns_record.dns_server.domain_name
+        td
+          = link_to "删除", dns_record_path(dns_record), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
+
+= link_to "新建", new_dns_record_path, :class => 'btn btn-primary'

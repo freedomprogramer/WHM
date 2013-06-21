@@ -2,11 +2,13 @@ class SftpUser
   include Mongoid::Document
   include Concerns::User
   include Concerns::Association
+  include Concerns::Restriction
 
   field :home
 
   # Relations
   belongs_to :nginx_server, :inverse_of => :sftp_users
+  has_many :nginx_sites, dependent: :restrict, :inverse_of => :sftp_user
 
   # Validations
   validates_exist_associated_object :nginx_server

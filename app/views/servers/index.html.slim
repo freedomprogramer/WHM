@@ -4,7 +4,7 @@ table class="table table-striped"
   thead
     tr
       th 域名
-      th IP
+      th IP 地址
       th 类型
       th 状态
       th 操作
@@ -12,11 +12,11 @@ table class="table table-striped"
     - @servers.each do |server|
       tr
         td= server.domain_name
-        td= server.ip
-        td= Settings.servers[ server.server_type ]
+        td= server.ip_address
+        td= Settings.servers.types[ server.type ]
         td= server.state
         td
-          = link_to "删除", server_path(server, server_type: server.server_type), :method => :delete, :confirm => "你确定要删除？", :class => 'btn btn-mini btn-danger'
+          = link_to "删除", server_path(server, type: server.type), :method => :delete, :confirm => "你确定要删除？", :class => 'btn btn-mini btn-danger'
 
 = form_tag new_server_path, method: 'get' do
   span 请选择服务器类型：

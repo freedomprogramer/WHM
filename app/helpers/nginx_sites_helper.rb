@@ -1,0 +1,2 @@
+module NginxSitesHelper
+end

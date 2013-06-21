@@ -1,0 +1,19 @@
+.page-header
+  h1 Nginx 站点
+table class="table table-striped"
+  thead
+    tr
+      th 站点名称
+      th SFTP 用户
+      th DNS
+      th 操作
+  tbody
+    - @nginx_sites.each do |nginx_site|
+      tr
+        td= nginx_site.site_name
+        td= nginx_site.sftp_user.username
+        td= nginx_site.dns_record.domain_name
+        td
+          = link_to "删除", nginx_site_path(nginx_site), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
+
+= link_to "新建", new_nginx_site_path, :class => 'btn btn-primary'

@@ -1,5 +1,9 @@
 WHM::Application.routes.draw do
 
+  resources :dns_records
+
+  resources :nginx_sites
+
   resources :sftp_users
 
   resources :servers, except: [:show, :edit, :update]

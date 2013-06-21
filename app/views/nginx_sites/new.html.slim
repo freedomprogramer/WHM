@@ -1,0 +1,12 @@
+.page-header
+  h1 新建 NGINX 站点
+
+= form_for @nginx_site do |f|
+  = f.label "站点名称"
+  = f.text_field :site_name
+  = f.label "SFTP 用户"
+  = f.select :sftp_user, SftpUser.all.map{|x| [x.username, x.id]}, {:prompt => '请选择'}
+  = f.label "DNS"
+  = f.select :dns_record, DnsRecord.all.map{|x| [x.domain_name, x.id]}, {:prompt => '请选择'}
+
+  = f.submit "保存"

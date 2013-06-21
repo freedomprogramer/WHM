@@ -26,7 +26,7 @@ html lang="en"
             span.icon-bar
           a.brand href="#"虚拟主机管理
           .container-fluid.nav-collapse
-            ul.nav
+            ul.nav.pull-right
               li= link_to "Link 1", "/path1"
               li= link_to "Link 2", "/path2"
               li= link_to "Link 3", "/path3"
@@ -38,10 +38,11 @@ html lang="en"
           .well.sidebar-nav
             ul.nav.nav-list
               li.nav-header Sidebar
-              li= link_to "系统用户管理", "/system_users"
+              li= link_to "系统用户管理", "#system_users"
               li= link_to "服务器管理", "/servers"
               li= link_to "SFTP 用户管理", "/sftp_users"
-              li= link_to "DNS 信息管理", "/dns_records"
+              li= link_to "MySQL 用户管理", "/#mysql_users"
+              li= link_to "DNS 记录管理", "/dns_records"
               li= link_to "NGINX 站点管理", "/nginx_sites"
         .span9
           = bootstrap_flash

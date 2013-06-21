@@ -1,7 +1,7 @@
 class ServersController < ApplicationController
   def index
-    @server_types = Settings.servers
-    @servers = Settings.servers.map { |k, v| Object.const_get(k.camelcase).all }.flatten!
+    @server_types = Settings.servers.types
+    @servers = Settings.servers.types.map { |k, v| Object.const_get(k.camelcase).all }.flatten!
   end
 
   def new
@@ -14,7 +14,7 @@ class ServersController < ApplicationController
   end
 
   def create
-    @server_type = params[:server][:server_type]
+    @server_type = params[:server][:type]
     unless @server_type.blank?
       @server = Object.const_get( @server_type.camelcase ).new(params[:server])
 
@@ -28,7 +28,7 @@ class ServersController < ApplicationController
   end
 
   def destroy
-    @server = Object.const_get( params[:server_type].camelcase ).find(params[:id])
+    @server = Object.const_get( params[:type].camelcase ).find(params[:id])
     if @server.destroy
       redirect_to servers_path, notice: "删除服务器成功"
     else
