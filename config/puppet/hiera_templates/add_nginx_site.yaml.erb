@@ -1,0 +1,11 @@
+---
+classes:
+  - nginx::install
+  - nginx::php_cgi
+  - nginx::add_site
+
+###! note: The nginx::add_site class and the nginx::del_site class cannot be used at the same time when they have the same name
+### Configure nginx::add_site
+nginx::add_site:
+  name: <%= params['site_name'] %>
+  root_directory: <%= params['site_directory'] %>

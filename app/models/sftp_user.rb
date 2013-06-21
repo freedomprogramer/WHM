@@ -17,7 +17,6 @@ class SftpUser
   # Callbacks
   before_validation :generate_home
 
-  # Callback
   execute_puppet_after_save do
     add_sftp_user nginx_server.domain_name
   end
