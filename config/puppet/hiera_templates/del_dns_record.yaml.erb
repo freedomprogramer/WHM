@@ -7,6 +7,6 @@ classes:
 dns::install::package: bind9
 
 ### Configure dns::del_A_record
-dns::del_A_record
+dns::del_A_record:
   domain: <%= params['domain_name'] %>
   record_file_path: <%= params['record_file'] %>

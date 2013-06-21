@@ -26,7 +26,8 @@ module Concerns
       end
 
       def verify_server
-        `ssh -o ConnectTimeout=1 root@vhostman.cdu.edu.cn ls`
+        # `ssh -o ConnectTimeout=1 root@vhostman.cdu.edu.cn ls`
+        `ls /home`
         $?.exitstatus == 0 ? verify_success : verify_fail
       end
     end

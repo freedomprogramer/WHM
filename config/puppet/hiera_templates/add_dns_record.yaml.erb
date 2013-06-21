@@ -7,7 +7,7 @@ classes:
 dns::install::package: bind9
 
 ### Configure dns::add_A_record
-dns::add_A_record
+dns::add_A_record:
   domain: <%= params['domain_name'] %>
   ip_address: <%= params['ip_address'] %>
   record_file_path:  <%= params['record_file'] %>
