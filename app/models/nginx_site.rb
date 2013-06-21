@@ -1,6 +1,7 @@
 class NginxSite
   include Mongoid::Document
   include Concerns::Association
+  # include Concerns::Puppet
 
   field :site_name
 

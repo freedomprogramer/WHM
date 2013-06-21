@@ -1,4 +1,9 @@
 defaults: &defaults
+  puppet:
+    master_domain: vhostman.cdu.edu.cn
+    hieradata: <%= Rails.root %>/tmp/hieradata/
+    hiera_templates: <%= Rails.root %>/config/puppet/hiera_templates
+
   sftp:
     chroot: /var/www
 

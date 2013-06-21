@@ -7,6 +7,7 @@ table class="table table-striped"
       th IP 地址
       th 类型
       td 服务器
+      td 状态
       th 操作
   tbody
     - @dns_records.each do |dns_record|
@@ -15,6 +16,7 @@ table class="table table-striped"
         td= dns_record.ip_address
         td= dns_record.type
         td= dns_record.dns_server.domain_name
+        td= dns_record.state
         td
           = link_to "删除", dns_record_path(dns_record), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
 
