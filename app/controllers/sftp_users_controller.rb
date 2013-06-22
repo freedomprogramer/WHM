@@ -12,32 +12,19 @@ class SftpUsersController < ApplicationController
     @sftp_user = SftpUser.new(params[:sftp_user])
 
     if @sftp_user.save
-      redirect_to sftp_users_path, notice: "新建 SFTP 用户成功"
+      redirect_to sftp_users_path, notice: "新建 SFTP 用户 成功"
     else
       render 'new'
     end
   end
 
-  def edit
-    @sftp_user = SftpUser.find(params[:id])
-  end
-
-  def update
-    @sftp_user = SftpUser.find(params[:id])
-
-    if @sftp_user.update_attributes(params[:sftp_user])
-      redirect_to sftp_users_path, notice: "更新用户成功"
-    else
-      render 'edit'
-    end
-  end
-
   def destroy
     @sftp_user = SftpUser.find(params[:id])
-    if @sftp_user.destroy
-      redirect_to sftp_users_path, notice: "删除用户成功" 
+    if @sftp_user && @sftp_user.destroy
+      redirect_to sftp_users_path, notice: "删除 SFTP 用户 成功" 
     else
-      redirect_to sftp_users_path, notice: "删除用户失败" 
+      flash[:error] = '删除 SFTP 用户 失败'
+      redirect_to sftp_users_path
     end
   end
 end

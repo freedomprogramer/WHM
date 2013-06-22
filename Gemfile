@@ -7,6 +7,7 @@ gem "slim-rails"
 gem 'ipaddress'
 gem 'settingslogic'
 gem 'state_machine'
+gem 'simple_form'
 
 group :assets do
   gem 'therubyracer', :platforms => :ruby

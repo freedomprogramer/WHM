@@ -1,14 +1,13 @@
 .page-header
   h1 新建 DNS 记录
 
-= form_for @dns_record do |f|
-  = f.label "域名"
-  = f.text_field :domain_name
-  = f.label "IP 地址"
-  = f.text_field :ip_address
-  = f.label "类型"
-  = f.select :type, Settings.dns.types, {:prompt => '请选择'}
-  = f.label "DNS 服务器"
-  = f.select :dns_server, DnsServer.all.map{|x| [x.domain_name, x.id]}, {:prompt => '请选择'}
-
-  = f.submit "保存"
+= simple_form_for @dns_record, :html => { :class => "form-horizontal" } do |f|
+  = f.input :dns_server, collection: DnsServer.all.map{|x| [x.domain_name, x.id] }, prompt: "请选择 DNS 服务器..."
+  = f.input :domain_name, hint: '输入域名，例如 blog'
+  = f.input :ip_address
+  = f.input :type, collection: Settings.dns.types, prompt: "请选择记录类型..."
+  
+  .form-actions
+    = f.button :submit, :class => 'btn-primary mask'
+    '
+    = link_to "取消", servers_path, :class => 'btn btn-danger'

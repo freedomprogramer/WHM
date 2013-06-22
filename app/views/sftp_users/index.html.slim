@@ -1,5 +1,9 @@
 .page-header
-  h1 SFTP 用户
+  h1
+    | SFTP 用户管理
+    small
+      = link_to "新建 SFTP 用户", new_sftp_user_path, :class => 'btn btn-primary'
+
 table class="table table-striped"
   thead
     tr
@@ -17,8 +21,4 @@ table class="table table-striped"
         td= sftp_user.nginx_server.domain_name
         td= sftp_user.password
         td= sftp_user.state
-        td
-          = link_to "编辑", edit_sftp_user_path(sftp_user), :class => 'btn btn-mini'
-          = link_to "删除", sftp_user_path(sftp_user), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
-
-= link_to "新建", new_sftp_user_path, :class => 'btn btn-primary'
+        td= delete_button sftp_user_path(sftp_user)

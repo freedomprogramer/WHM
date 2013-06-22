@@ -5,3 +5,38 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+.page-header h1 small {
+  padding-left: 50px;
+}
+
+.page-header h1 small select {
+  padding: 0;
+  margin: 0 20px;
+}
+
+.content-body {
+  margin: 20px 150px;
+}
+
+.alert {
+  text-align: center;
+}
+
+/* modal 美化 */
+.mask-layer .modal.fade.in {
+  background-color: rgba(38, 38, 38, 0);
+  color: #F8F8F8;
+  top: 30%;
+  border: 0px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+}
+.mask-layer .modal .modal-body {
+  text-align: center;
+}
+.mask-layer .modal .modal-footer {
+  padding: 0;
+  border: 0;
+}

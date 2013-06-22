@@ -1,5 +1,11 @@
 .page-header
-  h1 服务器
+  = form_tag new_server_path, method: 'get' do
+    h1
+      | 服务器管理
+      small
+        = select "server", "type", @server_types.map{ |text, value| [value, text] }, {:prompt => '请选择新建服务器类型...'}
+        = submit_tag "新建服务器", :class => 'btn btn-primary'
+
 table class="table table-striped"
   thead
     tr
@@ -13,12 +19,6 @@ table class="table table-striped"
       tr
         td= server.domain_name
         td= server.ip_address
-        td= Settings.servers.types[ server.type ]
+        td= server_type server.type
         td= server.state
-        td
-          = link_to "删除", server_path(server, type: server.type), :method => :delete, :confirm => "你确定要删除？", :class => 'btn btn-mini btn-danger'
-
-= form_tag new_server_path, method: 'get' do
-  span 请选择服务器类型：
-  = select "server", "type", @server_types.map{ |text, value| [value, text] }, {:prompt => '请选择...'}
-  = submit_tag "新建服务器", :class => 'btn btn-primary'
+        td= delete_button server_path(server, 'server[type]' => server.type)

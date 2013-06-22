@@ -13,7 +13,8 @@ class DnsRecord
   has_one :nginx_site, dependent: :restrict, :inverse_of => :dns_record
 
   # Validations
-  validates :domain_name, presence: true, uniqueness: true
+  validates_presence_of :domain_name, :ip_address, :type, :dns_server
+  validates_uniqueness_of :domain_name
   validates_exist_associated_object :dns_server
 
   # Callback

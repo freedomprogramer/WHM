@@ -1,0 +1,59 @@
+zh_CN:
+  mongoid:
+    models:
+      nginx_server: 'Nginx 服务器'
+      sftp_user: 'SFTP 用户'
+      dns_server: 'DNS 服务器'
+      dns_record: 'DNS 记录'
+      nginx_site: 'NGINX 站点'
+    attributes:
+      nginx_server:
+        ip_address: IP 地址
+        domain_name: 域名
+      sftp_user:
+        username: 用户名
+        nginx_server: NGINX 服务器
+        password: 密码
+        password_confirmation: 确认密码
+
+      dns_server:
+        ip_address: IP 地址
+        domain_name: 域名
+        zone: 区域
+        record_file: 记录文件位置
+      dns_record:
+        ip_address: IP 地址
+        domain_name: 域名
+        type: 记录类型
+        dns_server: DNS 服务器
+
+      nginx_site:
+        site_name: 站点名称
+        sftp_user: SFTP 用户
+        dns_record: DNS 记录
+
+  errors:
+    messages:
+      blank: 不能为空
+      confirmation: 与确认密码不匹配
+      empty: 不能留空
+      too_short: 过短（最短为 %{count} 个字符）
+      too_long: 过长（最长为 %{count} 个字符）
+      taken: 已经被使用
+      not_exist: 不存在
+      invalid: 是无效的
+
+      accepted: 必须是可被接受的
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: ! '验证失败: %{errors}'
+      wrong_length: 长度非法（必须为 %{count} 个字符）

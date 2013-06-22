@@ -12,7 +12,7 @@ class NginxSitesController < ApplicationController
     @nginx_site = NginxSite.new(params[:nginx_site])
 
     if @nginx_site.save
-      redirect_to nginx_sites_path, notice: "新建 NGINX 站点成功"
+      redirect_to nginx_sites_path, notice: "新建 NGINX 站点 成功"
     else
       render 'new'
     end
@@ -20,10 +20,11 @@ class NginxSitesController < ApplicationController
 
   def destroy
     @nginx_site = NginxSite.find(params[:id])
-    if @nginx_site.destroy
+    if @nginx_site && @nginx_site.destroy
       redirect_to nginx_sites_path, notice: "删除 NGINX 站点 成功"
     else
-      redirect_to nginx_sites_path, notice: "删除 NGINX 站点 失败"
+      flash[:error] = '删除 NGINX 站点 失败'
+      redirect_to nginx_sites_path
     end
   end
 end

@@ -10,7 +10,8 @@ class NginxSite
   belongs_to :dns_record, :inverse_of => :nginx_site
 
   # Validations
-  validates :site_name, presence: true, uniqueness: true
+  validates_presence_of :site_name, :sftp_user, :dns_record
+  validates_uniqueness_of :site_name
   validates_exist_associated_object :sftp_user, :dns_record
 
   # Callback

@@ -1,0 +1,10 @@
+.page-header
+  h1= '新建 ' + server_type(@server_type)
+
+= simple_form_for @server, as: :server, url: servers_path, :html => { :class => "form-horizontal" } do |f|
+  = f.hidden_field :type, value: @server_type, name: 'server[type]'
+  = render :partial => "#{@server_type}_form", locals: {f: f}
+  .form-actions
+    = f.button :submit, :class => 'btn-primary mask'
+    '
+    = link_to "取消", servers_path, :class => 'btn btn-danger'

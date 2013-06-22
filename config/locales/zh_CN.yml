@@ -1,0 +1,28 @@
+zh_CN:
+  project_name: 虚拟主机管理
+
+  breadcrumb:
+    dns_records:
+      index: DNS 记录
+      new: 新建
+    homes:
+      index: 虚拟主机系统
+    nginx_sites:
+      index: Nginx 站点
+      new: 新建
+    servers:
+      index: 服务器
+      new: 新建
+    sftp_users:
+      index: SFTP 用户
+      new: 新建
+
+  helpers:
+    submit:
+      create: 保存
+      update: 更新
+
+  simple_form:
+    required:
+      text: '必填'
+      mark: '* '

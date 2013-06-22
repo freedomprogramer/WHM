@@ -12,6 +12,7 @@ class SftpUser
   has_many :nginx_sites, dependent: :restrict, :inverse_of => :sftp_user
 
   # Validations
+  validates_presence_of :nginx_server
   validates_exist_associated_object :nginx_server
 
   # Callbacks

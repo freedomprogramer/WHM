@@ -1,5 +1,9 @@
 .page-header
-  h1 Nginx 站点
+  h1
+    | NGINX 站点管理
+    small
+      = link_to "新建 NGINX 站点", new_nginx_site_path, :class => 'btn btn-primary'
+
 table class="table table-striped"
   thead
     tr
@@ -15,7 +19,4 @@ table class="table table-striped"
         td= nginx_site.sftp_user.username
         td= nginx_site.dns_record.domain_name
         td= nginx_site.state
-        td
-          = link_to "删除", nginx_site_path(nginx_site), :method => :delete, :confirm => "你确定要删除吗？", :class => 'btn btn-mini btn-danger'
-
-= link_to "新建", new_nginx_site_path, :class => 'btn btn-primary'
+        td= delete_button nginx_site_path(nginx_site)

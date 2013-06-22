@@ -1,7 +1,0 @@
-= form_for @server, :as => :server, :url => { :action => "create" } do |f|
-  = f.hidden_field :type, value: @server_type
-  = f.label "IP 地址"
-  = f.text_field :ip_address
-  = f.label "域名"
-  = f.text_field :domain_name
-  = f.submit "保存"
