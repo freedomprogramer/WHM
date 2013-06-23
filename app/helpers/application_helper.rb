@@ -4,12 +4,12 @@ module ApplicationHelper
     button_tag "删除", :class => 'btn btn-mini btn-danger', onclick: "delete_confirm({url: '#{link}'});"
   end
 
-  # ------------------------------------ Mask layer --------------------------------------
-  def mask_layer_hidden_div
-    content_tag :div, class: 'mask-layer' do
-      modal_dialog :id => "mask-div",
-        :header => {:title => "正在后台努力为你执行操作，请耐心等待。。。"},
-        :body => content_tag(:i, class: 'icon-spinner icon-spin icon-4x', style: 'text-align: center;'){}
+  # ------------------------------------ overlay --------------------------------------------
+  def overlay_hidden_div
+    content_tag :div, id: 'overlay' do
+      content_tag :div, id: 'content' do
+        "正在后台努力为你执行操作，请耐心等待。。。"
+      end
     end
   end
 

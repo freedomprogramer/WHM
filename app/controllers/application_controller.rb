@@ -1,12 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :set_locale
+  before_filter CASClient::Frameworks::Rails::Filter
 
-  private
-  def set_locale
-    if params[:locale] && I18n.available_locales.include?( params[:locale].to_sym )
-      session[:locale] = params[:locale]
-    end
-    I18n.locale = session[:locale] || I18n.default_locale
+  def cas_logout
+    CASClient::Frameworks::Rails::Filter.logout(self)
   end
 end

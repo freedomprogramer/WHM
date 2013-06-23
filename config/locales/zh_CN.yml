@@ -1,6 +1,4 @@
 zh_CN:
-  project_name: 虚拟主机管理
-
   breadcrumb:
     dns_records:
       index: DNS 记录
@@ -8,7 +6,7 @@ zh_CN:
     homes:
       index: 虚拟主机系统
     nginx_sites:
-      index: Nginx 站点
+      index: NGINX 站点
       new: 新建
     servers:
       index: 服务器

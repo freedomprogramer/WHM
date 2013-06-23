@@ -5,6 +5,6 @@
   = f.hidden_field :type, value: @server_type, name: 'server[type]'
   = render :partial => "#{@server_type}_form", locals: {f: f}
   .form-actions
-    = f.button :submit, :class => 'btn-primary mask'
+    = f.button :submit, :class => 'btn-primary overlay'
     '
     = link_to "取消", servers_path, :class => 'btn btn-danger'

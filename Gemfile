@@ -8,6 +8,7 @@ gem 'ipaddress'
 gem 'settingslogic'
 gem 'state_machine'
 gem 'simple_form'
+gem 'rubycas-client'
 
 group :assets do
   gem 'therubyracer', :platforms => :ruby

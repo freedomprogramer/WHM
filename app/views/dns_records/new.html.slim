@@ -8,6 +8,6 @@
   = f.input :type, collection: Settings.dns.types, prompt: "请选择记录类型..."
   
   .form-actions
-    = f.button :submit, :class => 'btn-primary mask'
+    = f.button :submit, :class => 'btn-primary overlay'
     '
-    = link_to "取消", servers_path, :class => 'btn btn-danger'
+    = link_to "取消", dns_records_path, :class => 'btn btn-danger'

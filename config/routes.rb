@@ -1,6 +1,10 @@
 WHM::Application.routes.draw do
 
-  resources :homes
+  resources :homes do
+    collection do
+      get 'logout'
+    end
+  end
 
   resources :dns_records
 

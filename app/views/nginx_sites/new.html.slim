@@ -6,6 +6,6 @@
   = f.input :sftp_user, collection: SftpUser.all.map{|x| [x.username, x.id]}, prompt: "请选择 SFTP 用户..."
   = f.input :dns_record, collection: DnsRecord.all.map{|x| [x.domain_name, x.id]}, prompt: "请选择 DNS 记录..."
   .form-actions
-    = f.button :submit, :class => 'btn-primary mask'
+    = f.button :submit, :class => 'btn-primary overlay'
     '
-    = link_to "取消", servers_path, :class => 'btn btn-danger'
+    = link_to "取消", nginx_sites_path, :class => 'btn btn-danger'

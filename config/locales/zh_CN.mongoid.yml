@@ -1,11 +1,11 @@
 zh_CN:
   mongoid:
     models:
-      nginx_server: 'Nginx 服务器'
-      sftp_user: 'SFTP 用户'
-      dns_server: 'DNS 服务器'
-      dns_record: 'DNS 记录'
-      nginx_site: 'NGINX 站点'
+      nginx_server: NGINX 服务器
+      sftp_user: SFTP 用户
+      dns_server: DNS 服务器
+      dns_record: DNS 记录
+      nginx_site: NGINX 站点
     attributes:
       nginx_server:
         ip_address: IP 地址
@@ -15,7 +15,6 @@ zh_CN:
         nginx_server: NGINX 服务器
         password: 密码
         password_confirmation: 确认密码
-
       dns_server:
         ip_address: IP 地址
         domain_name: 域名
@@ -26,7 +25,6 @@ zh_CN:
         domain_name: 域名
         type: 记录类型
         dns_server: DNS 服务器
-
       nginx_site:
         site_name: 站点名称
         sftp_user: SFTP 用户

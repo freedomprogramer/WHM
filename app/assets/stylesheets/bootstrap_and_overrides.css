@@ -1,8 +1,5 @@
 /*
   =require twitter-bootstrap-static/bootstrap
-
-  Use Font Awesome icons (default)
-  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
 
@@ -23,20 +20,9 @@
   text-align: center;
 }
 
-/* modal 美化 */
-.mask-layer .modal.fade.in {
-  background-color: rgba(38, 38, 38, 0);
-  color: #F8F8F8;
-  top: 30%;
-  border: 0px solid rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
-}
-.mask-layer .modal .modal-body {
-  text-align: center;
-}
-.mask-layer .modal .modal-footer {
-  padding: 0;
-  border: 0;
-}
+/* overlay css*/
+*html { background:url(*) fixed; }
+*html body { margin:0; height:100%; }
+*html #overlay{ position: absolute; left: expression(documentElement.scrollLeft + documentElement.clientWidth - this.offsetWidth); top: expression(documentElement.scrollTop + documentElement.clientHeight - this.offsetHeight); }
+#overlay {display: none;position: fixed;z-index: 100000;width: 100%;height: 100%;top: 0;left: 0;filter: alpha(opacity=50);opacity: 0.75;overflow: hidden;background-color: #000;}
+#overlay #content {display: block;width: 100%;height: 30%;position: fixed;top: 45%;margin-top: -150px;background: #000;z-index: 3;left: 50%;margin-left: -250px;font-size: 20px;color: #fff;}

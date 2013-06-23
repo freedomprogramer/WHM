@@ -29,8 +29,8 @@ module Concerns
       end
 
       def ssh_remote_push domain_name
-        command = "ssh -o ConnectTimeout=1 root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
-        # command = 'ssh root@vhostman.cdu.edu.cn ls'
+        # command = "ssh -o ConnectTimeout=1 root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
+        command = 'ssh root@vhostman.cdu.edu.cn ls'
         Open3.popen3( command ) do |stdin, stdout, stderr, wait_thr|
           self.add_to_set :puppet_log, stdout.inject("----------stdout----------\n"){|sum, n| sum + n }
           self.add_to_set :puppet_log, stderr.inject("----------stderr----------\n"){ |sum, n| sum + n}

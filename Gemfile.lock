@@ -148,6 +148,8 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    rubycas-client (2.3.9)
+      activesupport
     settingslogic (2.0.9)
     simple_form (2.1.0)
       actionpack (~> 3.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   rspec-rails
+  rubycas-client
   settingslogic
   simple_form
   slim-rails

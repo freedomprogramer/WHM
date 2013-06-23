@@ -2,26 +2,22 @@ doctype html
 html lang="en"
   head
     meta charset="utf-8"
-    title= t('project_name')
+    title 虚拟主机管理系统
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
 
   body
-    = nav_bar :brand => t('project_name'), :brand_link => root_path, :responsive => true do
+    = nav_bar :brand => '虚拟主机管理', :brand_link => root_path, :responsive => true do
       = menu_group do
         = menu_item '服务器管理', servers_path, 'icon-sitemap'
         = drop_down "用户管理" do
           = menu_item "SFTP 用户管理", sftp_users_path
-          = menu_item "MySQL 用户管理", '#mysql_users_path'
         = menu_item 'DNS 记录管理', dns_records_path
         = menu_item 'NGINX 站点管理', nginx_sites_path
 
       = menu_group :pull => :right do
-        = menu_item '退出系统', "#"
-        - if I18n.locale == I18n.default_locale
-          li= link_to "English", :locale => 'en'
-        - else
-          li= link_to "简体中文", :locale => 'zh_CN'
+        = menu_item '欢迎 ' + session[:cas_user]
+        = menu_item '退出系统', logout_homes_path
 
     .container-fluid.content-body
       .row-fluid
@@ -30,6 +26,6 @@ html lang="en"
           - breadcrumb unless content_for?(:breadcrumb)
           = yield :breadcrumb
           = yield
-          = mask_layer_hidden_div
+          = overlay_hidden_div
 
     = javascript_include_tag "application"
