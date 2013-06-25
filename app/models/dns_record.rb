@@ -1,7 +1,6 @@
 class DnsRecord
   include Mongoid::Document
   include Concerns::Association
-  include Concerns::Restriction
   include Concerns::Puppet
 
   field :domain_name

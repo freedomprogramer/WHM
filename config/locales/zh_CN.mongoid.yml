@@ -31,11 +31,9 @@ zh_CN:
         dns_record: DNS 记录
 
   state:
-    saved: 已保存
-    success: 成功
-    failure: 失败
-    effective: 生效
-    useless: 无用
+    saved: 仅保存
+    usable: 可用
+    useless: 失效
 
   errors:
     messages:

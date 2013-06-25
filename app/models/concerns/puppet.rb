@@ -17,20 +17,19 @@ module Concerns
       set_callback :destroy, :before, :useless?
 
       state_machine :initial => :saved do
-        # 添加成功后状态转换
-        event :effect do
-          transition :saved => :effective
+        event :success do
+          transition [:saved, :useless] => :usable
         end
 
         # 删除成功后的状态转换
-        event :invalid do
-          transition :effective => :useless      
+        event :failure do
+          transition [:saved, :usable] => :useless
         end
       end
 
       def ssh_remote_push domain_name
-        command = "ssh -o ConnectTimeout=1 root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
-        # command = 'ls'
+        # command = "ssh -o ConnectTimeout=1 root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
+        command = 'ls'
         Open3.popen3( command ) do |stdin, stdout, stderr, wait_thr|
           self.add_to_set :puppet_log, stdout.inject("----------stdout----------\n"){|sum, n| sum + n }
           self.add_to_set :puppet_log, stderr.inject("----------stderr----------\n"){ |sum, n| sum + n}
@@ -50,13 +49,13 @@ module Concerns
         ssh_remote_push args.first
       end
 
-      # 执行 添加操作后判断执行是否成功。如果成功就改变 状态为 effective; 如果执行失败则撤销刚才执行的操作
+      # 执行 添加操作后判断执行是否成功。如果成功就改变 状态为 usable; 如果执行失败则撤销刚才执行的操作
       def add_and_check_status
         after_save_invoke_method
 
         puts 'rollback_status boolean ============> ' + self.rollback_status.to_s
         if self.rollback_status
-          self.set :state, 'effective'
+          self.set :state, 'usable'
         else
           self.rollback_status = true
           before_destroy_invoke_method

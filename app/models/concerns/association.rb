@@ -5,6 +5,18 @@ module Concerns
     extend ActiveSupport::Concern
     included do
       before_validation :find_associated_object
+
+      # 重写 destroy 方法，捕获 :dependent => :restrict 抛出的异常
+      def destroy
+        begin
+          super
+        rescue Mongoid::Errors::DeleteRestriction
+          # Return false if it have child document
+          false
+        end
+      end
+
+      def find_associated_object;end
     end
     
     module ClassMethods

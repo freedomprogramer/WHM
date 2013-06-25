@@ -2,7 +2,6 @@ class SftpUser
   include Mongoid::Document
   include Concerns::User
   include Concerns::Association
-  include Concerns::Restriction
   include Concerns::Puppet
 
   field :home

@@ -17,9 +17,9 @@ module ApplicationHelper
     badge_class = case
     when(['saved'].include? state)
         'badge-warning'
-    when(['success', 'effective'].include? state)
+    when(['usable'].include? state)
       'badge-success'
-    when(['effective', 'useless'].include? state)
+    when(['useless'].include? state)
       'badge-important'
     else
       'badge-info'

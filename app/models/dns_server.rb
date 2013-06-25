@@ -1,7 +1,8 @@
 class DnsServer
   include Mongoid::Document
+  include Concerns::Association
+  include Concerns::Puppet
   include Concerns::Server
-  include Concerns::Restriction
 
   field :zone
   field :record_file
