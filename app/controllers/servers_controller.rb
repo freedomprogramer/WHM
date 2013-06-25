@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class ServersController < ApplicationController
-  before_filter :find_server_type, except: [:index, :destroy]
+  before_filter :find_server_type, except: :index
 
   def index
     @server_types = Settings.servers.types
