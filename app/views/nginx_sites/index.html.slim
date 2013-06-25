@@ -18,5 +18,5 @@ table class="table table-striped"
         td= nginx_site.site_name
         td= nginx_site.sftp_user.username
         td= nginx_site.dns_record.domain_name
-        td= nginx_site.state
+        td= state_locale nginx_site.state
         td= delete_form nginx_site_path(nginx_site)

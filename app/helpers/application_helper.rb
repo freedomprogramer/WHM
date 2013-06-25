@@ -6,6 +6,10 @@ module ApplicationHelper
     end
   end
 
+  def state_locale value
+    I18n.t 'state.' + value
+  end
+
   # ------------------------------------ overlay --------------------------------------------
   def overlay_hidden_div
     content_tag :div, id: 'overlay' do

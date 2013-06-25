@@ -30,6 +30,13 @@ zh_CN:
         sftp_user: SFTP 用户
         dns_record: DNS 记录
 
+  state:
+    saved: 已保存
+    success: 成功
+    failure: 失败
+    effective: 生效
+    useless: 无用
+
   errors:
     messages:
       blank: 不能为空
