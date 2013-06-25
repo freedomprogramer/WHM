@@ -29,4 +29,8 @@ class DnsRecord
   def domain_full_name
     self.domain_name + '.' + dns_server.zone
   end
+
+  def self.available_dns_record
+    all.map { |e| e if e.nginx_site.blank? }.compact
+  end
 end
