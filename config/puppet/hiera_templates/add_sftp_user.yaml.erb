@@ -11,7 +11,7 @@ classes:
 ssh::sftp::config:
   group: www-data
   sshd_config_path: /etc/ssh/sshd_config
-  chroot_directory: /root/www/%u
+  chroot_directory: <%= Settings.sftp.chroot %>/%u
 
 ###! note: The ssh:add_user class and the ssh::del_user class cannot be used at the same time when they have the same username 
 ### Configure ssh::add_user
