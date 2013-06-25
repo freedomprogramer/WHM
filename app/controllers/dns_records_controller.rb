@@ -18,6 +18,12 @@ class DnsRecordsController < ApplicationController
     end
   end
 
+  def check_state
+    @dns_record = DnsRecord.find(params[:id])
+    @dns_record.add_and_check_status if @dns_record
+    redirect_to :back, notice: '当前 DNS 记录 状态验证成功，DNS 记录 状态已更新'
+  end
+
   def destroy
     @dns_record = DnsRecord.find(params[:id])
     if @dns_record && @dns_record.destroy

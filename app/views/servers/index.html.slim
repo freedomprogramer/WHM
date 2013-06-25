@@ -21,4 +21,6 @@ table class="table table-hover"
         td= server.ip_address
         td= server_type server.type
         td= state_locale server.state
-        td= delete_form server_path(server, 'server[type]' => server.type)
+        td
+          = delete_form server_path(server, 'server[type]' => server.type)
+          = check_link check_state_server_path(server, 'server[type]' => server.type)

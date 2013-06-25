@@ -20,9 +20,9 @@
   text-align: center;
 }
 
-/* delete form css*/
+/* delete form css */
 .destroy-form {
-  margin: 0;
+  margin: 0 10px;
 }
 
 /* overlay css*/

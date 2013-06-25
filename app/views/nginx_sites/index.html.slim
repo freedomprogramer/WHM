@@ -19,4 +19,6 @@ table class="table table-hover"
         td= nginx_site.sftp_user.username
         td= nginx_site.dns_record.domain_name
         td= state_locale nginx_site.state
-        td= delete_form nginx_site_path(nginx_site)
+        td
+          = delete_form nginx_site_path(nginx_site)
+          = check_link check_state_nginx_site_path(nginx_site)

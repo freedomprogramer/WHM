@@ -18,6 +18,12 @@ class NginxSitesController < ApplicationController
     end
   end
 
+  def check_state
+    @nginx_site = NginxSite.find(params[:id])
+    @nginx_site.add_and_check_status if @nginx_site
+    redirect_to :back, notice: '当前 NGINX 站点 状态验证成功，NGINX 站点 状态已更新'
+  end
+
   def destroy
     @nginx_site = NginxSite.find(params[:id])
     if @nginx_site && @nginx_site.destroy

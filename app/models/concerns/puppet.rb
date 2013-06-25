@@ -12,8 +12,8 @@ module Concerns
       # :rollback_status 判断第一次执行命令后是否成功，来确定是否需要回滚；并保存 回滚 后的状态
       field :rollback_status, default: true
 
-      set_callback :save, :after, :add_and_check_status, :if => :saved?
-      set_callback :destroy, :before, :del_and_check_status #, :if => :effective?
+      set_callback :save, :after, :add_and_check_status
+      set_callback :destroy, :before, :del_and_check_status
       set_callback :destroy, :before, :useless?
 
       state_machine :initial => :saved do
@@ -28,8 +28,8 @@ module Concerns
       end
 
       def ssh_remote_push domain_name
-        # command = "ssh -o ConnectTimeout=1 root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
-        command = 'ls'
+        command = "ssh -o ConnectTimeout=1 -o PasswordAuthentication=no root@#{domain_name} puppet agent --server #{Settings.puppet.master_domain} --test"
+        # command = 'ls'
         Open3.popen3( command ) do |stdin, stdout, stderr, wait_thr|
           self.add_to_set :puppet_log, stdout.inject("----------stdout----------\n"){|sum, n| sum + n }
           self.add_to_set :puppet_log, stderr.inject("----------stderr----------\n"){ |sum, n| sum + n}

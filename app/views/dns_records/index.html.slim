@@ -21,4 +21,6 @@ table class="table table-hover"
         td= dns_record.type
         td= dns_record.dns_server.domain_name
         td= state_locale dns_record.state
-        td= delete_form dns_record_path(dns_record)
+        td
+          = delete_form dns_record_path(dns_record)
+          = check_link check_state_dns_record_path(dns_record)

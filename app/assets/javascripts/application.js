@@ -14,5 +14,8 @@ function show_confirm(){
 $(document).ready(function(){
   $('.overlay').click(function(){
     $('#overlay').css('display','block');
-  })
+  });
+
+  // bootstrap
+  $("[data-toggle=tooltip]").tooltip();
 })

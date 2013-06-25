@@ -18,6 +18,12 @@ class SftpUsersController < ApplicationController
     end
   end
 
+  def check_state
+    @sftp_users = SftpUser.find(params[:id])
+    @sftp_user.add_and_check_status if @sftp_user
+    redirect_to :back, notice: '当前 SFTP 用户 状态验证成功，SFTP 用户 状态已更新'
+  end
+
   def destroy
     @sftp_user = SftpUser.find(params[:id])
     if @sftp_user && @sftp_user.destroy

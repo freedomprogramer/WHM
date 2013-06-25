@@ -21,4 +21,6 @@ table class="table table-hover"
         td= sftp_user.nginx_server.domain_name
         td= sftp_user.password
         td= state_locale sftp_user.state
-        td= delete_form sftp_user_path(sftp_user)
+        td
+          = delete_form sftp_user_path(sftp_user)
+          = check_link check_state_sftp_user_path(sftp_user)
