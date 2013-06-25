@@ -3,12 +3,11 @@
 //= require twitter/bootstrap
 // = require_tree .
 
-function delete_confirm( hash ){
+function show_confirm(){
   if(confirm('你确定要删除吗？')){
     $('#overlay').css('display','block');
-    $('<form action=' + hash['url'] +' method="POST"/>')
-      .append($('<input type="hidden" name="_method" value="delete"/>'))
-      .submit();
+  }else{
+    return false;
   }
 }
 

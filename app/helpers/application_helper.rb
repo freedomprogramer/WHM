@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 module ApplicationHelper
-  def delete_button link
-    button_tag "删除", :class => 'btn btn-mini btn-danger', onclick: "delete_confirm({url: '#{link}'});"
+  def delete_form link
+    form_tag link, method: :delete, class: 'destroy-form' do
+      submit_tag '删除', class: 'btn btn-danger btn-mini', onclick: 'return show_confirm();'
+    end
   end
 
   # ------------------------------------ overlay --------------------------------------------

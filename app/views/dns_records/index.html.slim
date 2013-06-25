@@ -21,4 +21,4 @@ table class="table table-striped"
         td= dns_record.type
         td= dns_record.dns_server.domain_name
         td= dns_record.state
-        td= delete_button dns_record_path(dns_record)
+        td= delete_form dns_record_path(dns_record)

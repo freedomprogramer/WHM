@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+/* delete form css*/
+.destroy-form {
+  margin: 0;
+}
+
 /* overlay css*/
 *html { background:url(*) fixed; }
 *html body { margin:0; height:100%; }

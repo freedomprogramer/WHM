@@ -21,4 +21,4 @@ table class="table table-striped"
         td= server.ip_address
         td= server_type server.type
         td= server.state
-        td= delete_button server_path(server, 'server[type]' => server.type)
+        td= delete_form server_path(server, 'server[type]' => server.type)
