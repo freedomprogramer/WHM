@@ -16,7 +16,7 @@ class ServersController < ApplicationController
 
     @server = server_class.new(params[:server])
     if @server.save
-      return redirect_to servers_path, notice: '新建 服务器 成功'
+      return redirect_to servers_path, notice: '添加 服务器 成功'
     else
       return render 'new'
     end

@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def check_link link
-    link_to '验证', link, class: 'btn btn-info btn-mini'
+    link_to '验证', link, class: 'btn btn-info btn-mini overlay'
   end
 
   # ----------------------------------- badge ----------------------------------------
