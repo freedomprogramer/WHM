@@ -6,7 +6,7 @@
         = select "server", "type", @server_types.map{ |text, value| [value, text] }, {:prompt => '请选择新建服务器类型...'}
         = submit_tag "新建服务器", :class => 'btn btn-primary'
 
-table class="table table-striped"
+table class="table table-hover"
   thead
     tr
       th 域名

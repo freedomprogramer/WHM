@@ -6,8 +6,24 @@ module ApplicationHelper
     end
   end
 
+  # ----------------------------------- badge ----------------------------------------
   def state_locale value
-    I18n.t 'state.' + value
+    content_tag :span, class: "badge #{badge_class value}" do
+      I18n.t 'state.' + value
+    end
+  end
+
+  def badge_class state
+    badge_class = case
+    when(['saved'].include? state)
+        'badge-warning'
+    when(['success', 'effective'].include? state)
+      'badge-success'
+    when(['effective', 'useless'].include? state)
+      'badge-important'
+    else
+      'badge-info'
+    end
   end
 
   # ------------------------------------ overlay --------------------------------------------
