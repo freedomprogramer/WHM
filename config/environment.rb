@@ -6,5 +6,5 @@ WHM::Application.initialize!
 
 # RubyCAS-Clinet
 CASClient::Frameworks::Rails::Filter.configure(
-  :cas_base_url => "http://vhostman.cdu.edu.cn:8000"
+  :cas_base_url => "http://cas.cdu.edu.cn"
 )
