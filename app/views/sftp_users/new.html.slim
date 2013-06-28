@@ -3,7 +3,7 @@
 
 = simple_form_for @sftp_user, :html => { :class => "form-horizontal" } do |f|
   = f.input :username
-  = f.input :nginx_server, collection: NginxServer.all.map{|x| [x.domain_name, x.id]}, prompt: "请选择 NGINX 服务器..."
+  = f.input :nginx_server, collection: NginxServer.usable_server.map{|x| [x.domain_name, x.id]}, prompt: "请选择 NGINX 服务器..."
   = f.input :password
   = f.input :password_confirmation
 

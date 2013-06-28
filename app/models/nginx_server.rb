@@ -11,4 +11,8 @@ class NginxServer
     ssh_login(self.domain_name, 'ls')
     $?.exitstatus == 0 ? true : false
   end
+
+  def self.usable_server
+    all.map { |e| e if e.usable? }.compact
+  end
 end

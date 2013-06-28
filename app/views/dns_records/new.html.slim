@@ -2,7 +2,7 @@
   h1 新建 DNS 记录
 
 = simple_form_for @dns_record, :html => { :class => "form-horizontal" } do |f|
-  = f.input :dns_server, collection: DnsServer.all.map{|x| [x.domain_name, x.id] }, prompt: "请选择 DNS 服务器..."
+  = f.input :dns_server, collection: DnsServer.usable_server.map{|x| [x.domain_name, x.id] }, prompt: "请选择 DNS 服务器..."
   = f.input :domain_name, hint: '输入域名，例如 blog'
   = f.input :ip_address
   = f.input :type, collection: Settings.dns.types, prompt: "请选择记录类型..."

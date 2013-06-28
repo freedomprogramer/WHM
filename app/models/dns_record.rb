@@ -30,7 +30,7 @@ class DnsRecord
     self.domain_name + '.' + dns_server.zone
   end
 
-  def self.available_dns_record
+  def self.usable_record
     all.map { |e| e if e.nginx_site.blank? }.compact
   end
 

@@ -39,4 +39,8 @@ class SftpUser
     grep_line = ssh_login(self.nginx_server.domain_name, "cat /etc/passwd | grep -c \"#{self.username}\t\"")
     $? == 0 && grep_line == '1' ? true :false
   end
+
+  def self.usable_users
+    all.map { |e| e if e.usable? }.compact
+  end
 end

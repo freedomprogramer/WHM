@@ -3,8 +3,8 @@
 
 = simple_form_for @nginx_site, :html => { :class => "form-horizontal" } do |f|
   = f.input :site_name
-  = f.input :sftp_user, collection: SftpUser.all.map{|x| [x.username, x.id]}, prompt: "请选择 SFTP 用户..."
-  = f.input :dns_record, collection: DnsRecord.available_dns_record.map{|x| [x.domain_name, x.id]}, prompt: "请选择 DNS 记录..."
+  = f.input :sftp_user, collection: SftpUser.usable_users.map{|x| [x.username, x.id]}, prompt: "请选择 SFTP 用户..."
+  = f.input :dns_record, collection: DnsRecord.usable_record.map{|x| [x.domain_name, x.id]}, prompt: "请选择 DNS 记录..."
   .form-actions
     = f.button :submit, :class => 'btn-primary overlay'
     '
