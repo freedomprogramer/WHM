@@ -3,6 +3,6 @@ class HomesController < ApplicationController
   end
 
   def logout
-    cas_logout
+    CASClient::Frameworks::Rails::Filter.logout(self)
   end
 end

@@ -3,6 +3,7 @@ class SftpUser
   include Concerns::User
   include Concerns::Association
   include Concerns::Puppet
+  include Concerns::Verify
 
   field :home
 
@@ -32,5 +33,10 @@ class SftpUser
   def encrypt_password
     self.password = `openssl passwd -1 -salt #{random_string(8)} #{password}`.chomp
     self.password_confirmation = `openssl passwd -1 -salt #{random_string(8)} #{password_confirmation}`.chomp
+  end
+
+  def verify_method
+    grep_line = ssh_login(self.nginx_server.domain_name, "cat /etc/passwd | grep -c \"#{self.username}\t\"")
+    $? == 0 && grep_line == '1' ? true :false
   end
 end

@@ -2,6 +2,7 @@ class DnsRecord
   include Mongoid::Document
   include Concerns::Association
   include Concerns::Puppet
+  include Concerns::Verify
 
   field :domain_name
   field :ip_address
@@ -31,5 +32,10 @@ class DnsRecord
 
   def self.available_dns_record
     all.map { |e| e if e.nginx_site.blank? }.compact
+  end
+
+  def verify_method
+    grep_line = ssh_login(self.dns_server.domain_name, "cat #{self.dns_server.record_file} | grep -c \"#{self.domain_name}\t\"")
+    $? == 0 && grep_line == '1' ? true :false
   end
 end

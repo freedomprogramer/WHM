@@ -23,4 +23,4 @@ table class="table table-hover"
         td= state_locale server.state
         td
           = delete_form server_path(server, 'server[type]' => server.type)
-          = check_link check_state_server_path(server, 'server[type]' => server.type)
+          = check_link verify_server_path(server, 'server[type]' => server.type)

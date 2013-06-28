@@ -1,7 +1,10 @@
+require 'net/http'
+
 class NginxSite
   include Mongoid::Document
   include Concerns::Association
   include Concerns::Puppet
+  include Concerns::Verify
 
   field :site_name
 
@@ -27,5 +30,11 @@ class NginxSite
 
   def site_root_directory
     File.join( sftp_user.home, site_name)
+  end
+
+  def verify_method
+    begin
+    Net::HTTP.get_response(URI("http://#{dns_record.domain_full_name}")).code == '200' ? true :false
+    rescue SocketError; false; end      
   end
 end

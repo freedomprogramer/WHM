@@ -22,9 +22,9 @@ class ServersController < ApplicationController
     end
   end
 
-  def check_state
+  def verify
     @server = server_class.find(params[:id])
-    @server.add_and_check_status if @server
+    @server.verify if @server
     redirect_to :back, notice: '当前 服务器 状态验证成功, 服务器 状态已更新'
   end
 

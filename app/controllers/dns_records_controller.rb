@@ -18,9 +18,9 @@ class DnsRecordsController < ApplicationController
     end
   end
 
-  def check_state
+  def verify
     @dns_record = DnsRecord.find(params[:id])
-    @dns_record.add_and_check_status if @dns_record
+    @dns_record.verify if @dns_record
     redirect_to :back, notice: '当前 DNS 记录 状态验证成功，DNS 记录 状态已更新'
   end
 
