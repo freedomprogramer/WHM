@@ -8,4 +8,6 @@ classes:
 ### Configure nginx::add_site
 nginx::add_site:
   name: <%= params['site_domain'] %>
+  owner: <%= params['owner'] %>
+  group: www-data
   root_directory: <%= params['site_directory'] %>
